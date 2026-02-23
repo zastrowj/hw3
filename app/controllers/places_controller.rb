@@ -3,20 +3,21 @@ class PlacesController < ApplicationController
     @places = Place.all
   end
 
-def show
-  @place = Place.find_by({ "id" => params["id"] })
-  @entries = Entry.where({ "place_id" => @place["id"] })
-end
+  def show
+    @place = Place.find_by({ "id" => params["id"] })
+    @entries = Entry.where({ "place_id" => @place["id"] })
+  end
 
   def new
     @place = Place.new
   end
 
-def create
-  @place = Place.new
-  # Change this to use the simple params syntax from your template
-  @place["name"] = params["name"]
-  @place.save
-  redirect_to "/places"
-end
+  def create
+    @place = Place.new
+    # Change this to use the simple params syntax from your template
+    @place["name"] = params["name"]
+    @place.save
+    redirect_to "/places"
+  end
 
+end
