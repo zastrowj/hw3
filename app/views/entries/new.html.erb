@@ -1,0 +1,22 @@
+<h1>Add a New Entry for <%= @place&.name %></h1>
+<%= form_with model: @entry, local: true do |form| %>
+  <%= form.hidden_field :place_id, value: @place&.id %>
+  <div>
+    <%= form.label :title, 'Title:' %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :description, 'Description:' %>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.label :posted_on, 'Date:' %>
+    <%= form.date_field :posted_on %>
+  </div>
+  <div>
+    <%= form.submit 'Create Entry' %>
+  </div>
+<% end %>
+<p>
+  <%= link_to 'Back to Place', place_path(@place) if @place %>
+</p>
