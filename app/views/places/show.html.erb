@@ -4,7 +4,9 @@
 <ul>
   <% for entry in @entries %>
     <li>
-      <strong><%= entry["title"] %></strong> - <%= entry["occurred_on"] %>
+      <strong><%= entry["title"] %></strong>
+      <br>
+      <%= entry["occurred_on"] %>
       <p><%= entry["description"] %></p>
     </li>
   <% end %>
